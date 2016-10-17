@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/LayoutPadrao">
+
+<head>
+<title>Cadastro de Clientes</title>
+</head>
+
+<body>
+	<section layout:fragment="conteudo">
+
+		<div class="page-header">
+			<div class="container-fluid">
+				<h1>Cadastro de Clientes</h1>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+
+			<form method="POST" th:object="${cliente}"
+				th:action="@{/clientes/save}" class="form-vertical  js-form-loading">
+
+				<div class="row">
+					<div class="col-sm-6">
+						<label for="input-produto-nome">Nome</label> <input
+							id="input-produto-nome" type="text" class="form-control"
+							th:field="*{nome}" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="form-group">
+							<label>Tipo Pessoa:</label> <br /> 
+							<select th:field="*{tipoPessoa}">
+								<option value="" >Selecione </option>
+								<option th:each="tipoPessoa : ${tipos}" th:value="${tipoPessoa}"
+								 th:text="${tipoPessoa}"></option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-2">
+							<label for="input-produto-cpf">CPF</label> <input
+								id="input-produto-cpf" rows="3" class="form-control" th:field="*{cpf}" />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="form-group">
+							<label for="input-produto-dataNascimento">Data de
+								Nascimento</label> <input id="input-produto-dataNascimento" type="text"
+								class="form-control" placeholder="Data de Nascimento"  
+								th:field="*{dataNascimento}"/>
+						</div>
+					</div>
+
+					<div class="col-sm-2">
+						<div class="form-group">
+							<label for="input-produto-email">E-Mail</label> <input
+								id="input-produto-email" type="text" class="form-control"
+								placeholder="E-Mail" th:field="*{email}" />
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="form-group">
+							<label for="input-produto-tipoCel">Tipo de Telefone</label> <br />
+							<select th:field="*{tipoTelefone}" >
+							<option value="" >Selecione o Tipo</option>
+							<option th:each="tipoTelefone : ${tiposTelefone}" 
+							th:text="${tipoTelefone}" th:value="${tipoTelefone}" ></option>
+							</select>
+						</div>
+					</div>
+
+					<div class="col-sm-2">
+						<div class="form-group">
+							<label for="input-produto-telefone">Telefone</label> <input
+								id="input-produto-telefone" type="text" class="form-control"
+								placeholder="Informe o Telefone" th:field="*{numeroTelefone}" />
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="form-group">
+							<label for="input-produto-tipoEndereco">Tipo de Endereco</label> <br />
+							<select th:field="*{endereco.tipoEndereco}" >
+							<option value="" >Selecione o tipo de Endereco</option>
+							<option th:each="tipoEndereco : ${tiposEndereco}" 
+							th:text="${tipoEndereco.descricao}"  
+							th:value="${tipoEndereco}" ></option>
+							</select>
+						</div>
+					</div>
+
+					<div class="col-sm-3">
+						<div class="form-group">
+							<label for="input-produto-logradouro">Logradouro</label> <input
+								id="input-produto-logradouro" type="text" class="form-control"
+								placeholder="Logradouro" th:field="*{endereco.descricao}" />
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-1">
+						<div class="form-group">
+							<label for="input-produto-numero">Nº</label> <input
+								id="input-produto-numero" type="text" class="form-control"
+								placeholder="Nº" th:field="*{endereco.numero}" />
+						</div>
+					</div>
+
+					<div class="col-sm-2">
+						<div class="form-group">
+							<label for="input-produto-complemento">Complemento</label> <input
+								id="input-produto-complemento" type="text" class="form-control"
+								placeholder="Complemento" th:field="*{endereco.complemento}" />
+						</div>
+					</div>
+
+					<div class="col-sm-3">
+						<div class="form-group">
+							<label for="input-produto-cidade">Cidade</label> <input
+								id="input-produto-cidade" type="text" class="form-control"
+								placeholder="Selecione o estado antes" th:field="*{endereco.cidade}" />
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="form-group">
+							<label for="input-produto-cep">CEP</label> <input
+								id="input-produto-cep" type="text" class="form-control"
+								placeholder="Informe o CEP" th:field="*{endereco.cep}" />
+						</div>
+					</div>
+
+					<div class="col-sm-1">
+						<div class="form-group">
+							<label for="input-produto-estado">Estado</label> <input
+								id="input-produto-estado" type="text" class="form-control"
+								placeholder="Sigla" th:field="*{endereco.siglaEstado}" />
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<button class="btn  btn-primary" type="submit">Salvar</button>
+					<a href="#" class="btn  btn-default">Limpar</a>
+				</div>
+			</form>
+		</div>
+
+	</section>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/LayoutPadrao">
+
+<head>
+<title>Pesquisa de Pedidos</title>
+</head>
+
+<body>
+	<section layout:fragment="conteudo">
+
+		<div class="page-header">
+			<div class="container-fluid">
+				<h1>Pesquisa de Pedidos</h1>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+
+
+			<form method="GET" class="form-vertical  js-form-loading">
+
+
+				<div class="row">
+					<div class="col-sm-6">
+						<label for="input-pedido-vendedor">Vendedor</label> <input
+							id="input-pedido-vendedor" type="text" class="form-control" />
+					</div>
+
+					<div class="col-sm-6">
+						<label for="input-pedido-nomeCliente">Nome do Cliente</label> <input
+							id="input-pedido-nomeCliente" rows="3" class="form-control" />
+					</div>
+
+					<div class="col-sm-6">
+						<label for="input-pedido-data">Data da Venda</label> <input
+							id="input-pedido-data" rows="3" class="form-control" />
+					</div>
+
+					<div class="col-sm-6">
+						<label for="input-produto-tipo">Tipo de Produto</label> <input
+							id="input-produto-tipo" rows="3" class="form-control" />
+					</div>
+
+
+				</div>
+
+
+				<div class="form-group">
+					<button class="btn  btn-primary" type="submit" style="margin-top:10px">Pesquisar</button>
+
+				</div>
+			</form>
+		</div>
+
+	</section>
+</body>
+</html>

@@ -1,0 +1,25 @@
+.box {
+	border-style: ridge;
+	background-color: #FFFFFF;
+	color: #000000;
+	border-bottom-color:#1e94d2;	
+	
+	padding: 14px 15px;
+	margin: 0px;
+}
+
+.box > h2 {
+	font-size: 11px;
+	font-weight: 500;
+	padding: 0;
+	margin: 0;
+}
+
+.box > span {
+	font-family:"Times New Roman", Times, serif;
+	font-size: 19px;
+	font-weight: 500;
+	padding: 0px;
+	margin: 0px
+	
+}

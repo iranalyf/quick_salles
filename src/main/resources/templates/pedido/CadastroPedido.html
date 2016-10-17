@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/LayoutPadrao">
+
+<head>
+<title>Novo Pedido</title>
+
+</head>
+
+<body>
+
+	<form th:action="@{/pedidos/produtosPorNome}"
+									th:object="${produtoPorNome}" method="get" autocomplete="on">
+		<section layout:fragment="conteudo">
+
+			<div class="page-header">
+				<div class="container-fluid">
+					<h1>Novo Pedido</h1>
+				</div>
+			</div>
+
+			<div class="container-fluid">
+
+				<!-- Inicio das caixas -->
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="box">
+							<span>R$ 121,00</span>
+							<h2>Valor Total</h2>
+						</div>
+
+					</div>
+
+					<div class="col-sm-4">
+						<div class="box">
+							<span>Orçamento</span>
+							<h2>Status</h2>
+						</div>
+
+					</div>
+
+					<div class="col-sm-4">
+						<div class="box">
+							<span>Hoje</span>
+							<h2>Data Criação</h2>
+						</div>
+
+					</div>
+				</div>
+				<!-- fim das caixas -->
+
+				<!-- inputs -->
+				<div class="row" style="margin-top: 16px">
+					<div class="col-sm-3">
+						<label for="input-cliente">Cliente</label> <input
+							id="input-cliente" type="text" class="form-control"
+							placeholder="Clique na lupa para pesquisar o cliente" />
+
+					</div>
+
+					<div class="col-sm-1">
+						<button class="btn btn-primary dropdown-toggle" type="button"
+							data-toggle="modal" data-target="#ModalBuscarCliente">Buscar</button>
+
+					</div>
+
+					<div class="col-sm-4">
+						<label for="input-valorFrete">Valor do Frete</label> <input
+							id="input-valorFrete" type="text" class="form-control" />
+					</div>
+
+					<div class="col-sm-4">
+						<label for="input-valorDesconto">Valor do Desconto</label> <input
+							id="input-valorDesconto" type="text" class="form-control" />
+					</div>
+
+				</div>
+
+				<!-- Modal Pesquisa de Clientes-->
+				<div id="ModalBuscarCliente" class="modal fade" role="dialog">
+					<div class="modal-dialog">
+
+						<!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">Pesquisa de Clientes</h4>
+							</div>
+							<div class="row">
+								<div class="col-sm-12">
+									<label for="input-produto-nome">Nome</label> <input
+										id="input-produto-nome" type="text" class="form-control" />
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>Tipo Pessoa:</label> <br /> <select>
+											<option value="">Selecione</option>
+
+										</select>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-sm-3">
+										<label for="input-produto-cpf">CPF</label> <input
+											id="input-produto-cpf" rows="3" class="form-control" />
+									</div>
+								</div>
+
+								<button class="btn btn-primary dropdown-toggle" type="button">Pesquisar</button>
+
+								<button class="btn btn-default dropdown-toggle" type="button">Cancelar</button>
+
+							</div>
+							<!-- <div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Close</button>
+							</div> -->
+						</div>
+
+					</div>
+				</div>
+
+
+				<br />
+
+				<!-- tabsView -->
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#itens">Itens</a></li>
+
+					<li><a href="#entrega">Entrega</a></li>
+				</ul>
+
+				<!-- conteudo das tabs -->
+				<!-- tab Itens -->
+				<div class="tab-content">
+					<div id="itens" class="tab-pane fade in active">
+
+						<div class="row" style="margin-top: 16px">
+							<div class="col-sm-12">
+
+								
+
+									<input id="input-itensPedido" type="text" class="form-control"
+										autocomplete="on"
+										placeholder="Pesquise e Adicione Produtos pelo código ou nome do mesmo" />
+
+								
+
+							</div>
+						</div>
+					</div>
+
+					<!-- tab Entrega -->
+					<div id="entrega" class="tab-pane fade in active"></div>
+				</div>
+
+				<br />
+
+				<!-- botao salvar -->
+				<div class="dropdown">
+					<button class="btn btn-primary dropdown-toggle" type="button"
+						data-toggle="dropdown">
+						Salvar <span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="#">Salvar e Emitir</a></li>
+						<li><a href="#">Salvar e enviar por E-Mail</a></li>
+					</ul>
+				</div>
+
+
+			</div>
+		</section>
+	</form>
+</body>
+</html>

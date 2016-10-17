@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/LayoutPadrao">
+
+<head>
+<title>DashBoard</title>
+<script th:src="@{/layout/javascripts/Chart.min.js}"></script>
+</head>
+
+<body>
+	<section layout:fragment="conteudo">
+
+		<div class="page-header">
+
+			<h1>Dash Board</h1>
+		</div>
+
+		<div class="container-fluid">
+
+			<!-- inicio das caixas do dash -->
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="box" align="right">
+						<span>R$ 12.009,00</span>
+						<h2>Valor do Estoque Atual</h2>
+
+					</div>
+
+				</div>
+
+				<div class="col-sm-4">
+					<div class="box" align="right">
+						<span>444</span>
+						<h2>Itens no Estoque</h2>
+					</div>
+
+				</div>
+
+				<div class="col-sm-4">
+					<div class="box" align="right">
+						<span>12</span>
+						<h2>Total de Clientes</h2>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="row" style="margin-top: 10px">
+				<div class="col-sm-4">
+					<div class="box" align="right">
+						<span>R$ 67.000,89</span>
+						<h2>Vendas no Ano</h2>
+					</div>
+
+				</div>
+
+				<div class="col-sm-4">
+					<div class="box" align="right">
+						<span>R$ 5.090,77</span>
+						<h2>Vendas no mês</h2>
+					</div>
+
+				</div>
+
+				<div class="col-sm-4">
+					<div class="box" align="right">
+						<span>R$ 17,99</span>
+						<h2>Ticket médio</h2>
+					</div>
+
+				</div>
+			</div>
+			<!-- fim das caixas do dash -->
+		
+		<br />
+
+		<!-- Grafico de Barras -->
+		<div style="width: 400px; height: 400px">
+			<canvas id="grafico_vendas_totais" width="400" height="400" />
+			<script>
+				var ctx = document.getElementById("grafico_vendas_totais");
+				var myChart = new Chart(ctx, {
+					type : 'bar',
+					data : {
+						labels : [ "Red", "Blue", "Yellow", "Green", "Purple",
+								"Orange" ],
+						datasets : [ {
+							label : '# of Votes',
+							data : [ 12, 19, 3, 5, 2, 3 ],
+							backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
+									'rgba(54, 162, 235, 0.2)',
+									'rgba(255, 206, 86, 0.2)',
+									'rgba(75, 192, 192, 0.2)',
+									'rgba(153, 102, 255, 0.2)',
+									'rgba(255, 159, 64, 0.2)' ],
+							borderColor : [ 'rgba(255,99,132,1)',
+									'rgba(54, 162, 235, 1)',
+									'rgba(255, 206, 86, 1)',
+									'rgba(75, 192, 192, 1)',
+									'rgba(153, 102, 255, 1)',
+									'rgba(255, 159, 64, 1)' ],
+							borderWidth : 1
+						} ]
+					},
+					options : {
+						scales : {
+							yAxes : [ {
+								ticks : {
+									beginAtZero : true
+								}
+							} ]
+						}
+					}
+				});
+			</script>
+	</div>
+		<!-- Grafico de Linhas -->
+	<div style="width: 400px; height: 400px; margin-left: 500px; margin-top: -400px " >
+		<canvas id="graficos_vendas_vendedor" width="400" height="400" />
+		<script>
+			var ctx = document.getElementById("graficos_vendas_vendedor");
+			var myChart = new Chart(ctx, {
+				type : 'line',
+				data : {
+					labels : [ "Red", "Blue", "Yellow", "Green", "Purple",
+							"Orange" ],
+					datasets : [ {
+						label : '# of Votes',
+						data : [ 12, 19, 3, 5, 2, 3 ],
+						backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
+								'rgba(54, 162, 235, 0.2)',
+								'rgba(255, 206, 86, 0.2)',
+								'rgba(75, 192, 192, 0.2)',
+								'rgba(153, 102, 255, 0.2)',
+								'rgba(255, 159, 64, 0.2)' ],
+						borderColor : [ 'rgba(255,99,132,1)',
+								'rgba(54, 162, 235, 1)',
+								'rgba(255, 206, 86, 1)',
+								'rgba(75, 192, 192, 1)',
+								'rgba(153, 102, 255, 1)',
+								'rgba(255, 159, 64, 1)' ],
+						borderWidth : 1
+					} ]
+				},
+				options : {
+					scales : {
+						yAxes : [ {
+							ticks : {
+								beginAtZero : true
+							}
+						} ]
+					}
+				}
+			});
+		</script>
+</div>
+</div>
+
+	</section>
+</body>
+</html>
